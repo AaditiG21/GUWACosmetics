@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!-- dashboard.html -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,26 +8,22 @@
 </head>
 <body>
   <header>
-    <h1>Glam Up With Aaditi</h1>
-    <nav>
-      <button>Home</button>
-      <button class="active">Admin Dashboard</button>
-      <button>Product</button>
-      <button>About Us</button>
-    </nav>
+   
+     <jsp:include page="header.jsp" />
   </header>
+
   <main>
-    <input type="text" placeholder="search">
+    <input type="text" placeholder="Search">
 
-    <section class="stats">
-      <div>Total Products<br>200</div>
-      <div>Low Stock Items<br>30</div>
-      <div>Out of stock<br>6</div>
-      <div>Total Inventory Value<br>3,00,500</div>
-      <div>New this month<br>7</div>
-    </section>
+    <div class="stats">
+      <div>Total Products<br><b>200</b></div>
+      <div>Low Stock Items<br><b>30</b></div>
+      <div>Out of stock<br><b>6</b></div>
+      <div>Total Inventory Value<br><b>3,00,500</b></div>
+      <div>New this month<br><b>7</b></div>
+    </div>
 
-    <section class="dashboard-tables">
+    <div class="dashboard-tables">
       <div class="trending">
         <h3>Trending Products</h3>
         <table>
@@ -40,7 +34,10 @@
           <tr><td>Eye Kajal</td><td>NOTE</td><td>Black</td><td>1100</td></tr>
         </table>
         <div class="actions">
-          <button>Create</button><button>Update</button><button>Delete</button><button>View</button>
+          <button>Create</button>
+          <button>Update</button>
+          <button class="delete">Delete</button>
+          <button class="view">View</button>
         </div>
       </div>
       <div class="orders">
@@ -48,17 +45,14 @@
         <table>
           <tr><th>Name</th><th>Brand</th><th>Shade</th><th>Packed</th><th>Shipped</th></tr>
           <tr><td>Blush</td><td>Rare Beauty</td><td>Sensatio</td><td>5</td><td>8</td></tr>
-          <tr><td>Setting Powde</td><td>Huda beaut</td><td>Trans</td><td>6</td><td>10</td></tr>
+          <tr><td>Setting Powder</td><td>Huda Beauty</td><td>Trans</td><td>6</td><td>10</td></tr>
           <tr><td>Eyeshadow</td><td>NYX</td><td>Popx</td><td>2</td><td>8</td></tr>
           <tr><td>Lipgloss</td><td>LA Colors</td><td>Splash girl</td><td>15</td><td>10</td></tr>
         </table>
       </div>
-    </section>
+    </div>
 
-    <footer>
-      <button>Contact Us</button>
-      <button>Log out</button>
-    </footer>
+    <jsp:include page="footer.jsp"/>
   </main>
 </body>
 </html>

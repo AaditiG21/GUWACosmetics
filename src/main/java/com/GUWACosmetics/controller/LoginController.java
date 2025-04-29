@@ -1,5 +1,6 @@
 package com.GUWACosmetics.controller;
 
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -52,7 +53,7 @@ public class LoginController extends HttpServlet {
 			//response.sendRedirect("home");
 			
 		}
-		//doGet(request, response);
+		
 	}
 
 }

@@ -4,19 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glam Up With Aaditi - About Us</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/Aboutus.css"/>
 </head>
 <body>
     <header>
         <div class="container header-content">
-            <a href="index.html" class="logo">Glam Up With Aaditi</a>
-            <nav class="nav-menu">
-                <a href="index.html">Home</a>
-                <a href="#">Admin Dashboard</a>
-                <a href="#">Product</a>
-                <a href="about.html" class="active">About Us</a>
-            </nav>
+            
+             <jsp:include page="header.jsp" />
         </div>
     </header>
 
@@ -62,14 +56,8 @@
         </div>
     </main>
 
-    <footer class="container">
-        <div class="copyright">© 2024 GUWA Cosmetics. All rights reserved</div>
-        <div class="footer-actions">
-            <a href="#">Contact Us</a>
-            <a href="#">Log out</a>
-        </div>
-    </footer>
+    <jsp:include page="footer.jsp"/>
 
-    <script src="script.js"></script>
+    
 </body>
 </html>

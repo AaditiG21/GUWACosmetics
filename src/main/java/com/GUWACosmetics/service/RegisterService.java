@@ -27,20 +27,16 @@ public class RegisterService {
 			return null;
 			}
 		
-		String insertQuery = "INSERT INTO customer (first_Name, last_Name, username, phone_Number,email,password) "
-				+ ""+ "VALUES (?, ?, ?, ?, ?, ?)";
+		String insertQuery = "INSERT INTO user (First_Name,Last_Name,UserName,Phone_Number,Email,Password) "
+		+ "VALUES (?, ?, ?, ?, ?, ?)";
 		try (PreparedStatement insertStmt = dbConn.prepareStatement(insertQuery)) {
-			/* Fetch program ID
-programStmt.setString(1, studentModel.getProgram().getName());
-ResultSet result = programStmt.executeQuery();
-int programId = result.next() ? result.getInt("program_id") : 1;*/
-			// Insert customer details
+			
 			insertStmt.setString(1, customerModel.getFirstName());
 			insertStmt.setString(2, customerModel.getLastName());
 			insertStmt.setString(3, customerModel.getUserName());
 			insertStmt.setString(4, customerModel.getPhonenumber());
-			insertStmt.setString(6, customerModel.getEmail());
-			insertStmt.setString(7, customerModel.getPassword());
+			insertStmt.setString(5, customerModel.getEmail());
+			insertStmt.setString(6, customerModel.getPassword());
 			
 			return insertStmt.executeUpdate() > 0;
 			

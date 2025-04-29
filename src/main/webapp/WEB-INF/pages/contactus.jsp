@@ -12,13 +12,8 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <a href="index.html" class="logo">Glam Up With Aaditi</a>
-            <div class="nav">
-                <a href="index.html" class="nav-btn">Home</a>
-                <a href="admin.html" class="nav-btn">Admin Dashboard</a>
-                <a href="product.html" class="nav-btn">Product</a>
-                <a href="about.html" class="nav-btn">About Us</a>
-            </div>
+            
+             <jsp:include page="header.jsp" />
         </header>
 
         <!-- Contact Page Content -->

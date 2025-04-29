@@ -11,13 +11,8 @@
 
   <!-- Header -->
   <header>
-    <h2>Glam Up With Aaditi</h2>
-    <nav>
-      <button>Home</button>
-      <button class="active">Product</button>
-      <button>About Us</button>
-      <input type="text" placeholder="Search" class="search-box">
-    </nav>
+    
+     <jsp:include page="header.jsp" />
   </header>
 
   <!-- Main Content -->
@@ -110,10 +105,8 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-      <button>Contact Us</button>
-      <button>Log out</button>
-    </footer>
+    <jsp:include page="footer.jsp"/>
+
   </main>
 
 </body>

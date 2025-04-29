@@ -10,28 +10,30 @@
 </head>
 <body>
   <div class="register-container">
-    <form>
+    <form action="${pageContext.request.contextPath}/Register"  method="post">
+    
       <h2>Register to explore more</h2>
       <label>First Name:</label>
-      <input type="text" name="username">
+      <input type="text" id= "fname" name="fname">
       
       <label>Last Name:</label>
-      <input type="text" name="username">
+      <input type="text" id= "lname" name="lname">
       
-      <label>Username:</label>
-      <input type="text" name="username">
+      <label> Username:</label>
+      <input type="text" id= "username" name="username">
 
       <label>Phone number:</label>
-      <input type="text" name="phone">
+      <input type="tel" id= "phone" name="phone">
+      
 
       <label>Email Address:</label>
-      <input type="email" name="email">
+      <input type="email" id= "email" name="email">
 
       <label>Password:</label>
-      <input type="password" name="password">
+      <input type="password"id= "password" name="password">
 
       <label>Confirm Password:</label>
-      <input type="password" name="confirm_password">
+      <input type="password" id= "cpassword" name="cpassword">
 
       <div class="buttons">
         <button type="submit">Register</button>
