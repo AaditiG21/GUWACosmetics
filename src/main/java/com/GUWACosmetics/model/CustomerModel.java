@@ -9,11 +9,11 @@ public class CustomerModel {
 	private String phonenumber;
 	private String email;
 	private String password;
-	private String confirm;
+	
 	
 	
 	public CustomerModel(String firstName, String lastName, String userName, String phonenumber, String email,
-			String password, String confirm) {
+			String password) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -21,7 +21,7 @@ public class CustomerModel {
 		this.phonenumber = phonenumber;
 		this.email = email;
 		this.password = password;
-		this.confirm = confirm;
+		
 	}
 	public String getFirstName() {
 		return firstName;
@@ -59,14 +59,8 @@ public class CustomerModel {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getConfirm() {
-		return confirm;
-	}
-	public void setConfirm(String confirm) {
-		this.confirm = confirm;
-	}
 	
-
+	
 	
 
 }

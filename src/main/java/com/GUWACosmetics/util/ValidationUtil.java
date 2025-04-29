@@ -1,41 +1,53 @@
 package com.GUWACosmetics.util;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
-
-/**
- * Servlet implementation class ValidationUtil
- */
-@WebServlet(asyncSupported = true, urlPatterns = { "/ValidationUtil" })
-public class ValidationUtil extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+public class ValidationUtil {
+    
     /**
-     * @see HttpServlet#HttpServlet()
+     * Validates if a name contains only letters and spaces
+     * @param name The name to validate
+     * @return true if the name is valid, false otherwise
      */
-    public ValidationUtil() {
-        super();
-        // TODO Auto-generated constructor stub
+    public static boolean isValidName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            return false;
+        }
+        return name.matches("^[a-zA-Z\\s]+$");
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
+    
+    /**
+     * Validates if an email address is in correct format
+     * @param email The email to validate
+     * @return true if the email is valid, false otherwise
+     */
+    public static boolean isValidEmail(String email) {
+        if (email == null || email.trim().isEmpty()) {
+            return false;
+        }
+        return email.matches("^[A-Za-z0-9+_.-]+@(.+)$");
+    }
+    
+    /**
+     * Validates if a phone number is in correct format
+     * @param phone The phone number to validate
+     * @return true if the phone number is valid, false otherwise
+     */
+    public static boolean isValidPhone(String phone) {
+        if (phone == null || phone.trim().isEmpty()) {
+            return false;
+        }
+        return phone.matches("^\\d{10}$");
+    }
+    
+    /**
+     * Validates if a password meets minimum requirements
+     * @param password The password to validate
+     * @return true if the password is valid, false otherwise
+     */
+    public static boolean isValidPassword(String password) {
+        if (password == null || password.length() < 8) {
+            return false;
+        }
+        // Password must contain at least one digit, one lowercase, one uppercase letter
+        return password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$");
+    }
 }

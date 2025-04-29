@@ -1,41 +1,37 @@
+
 package com.GUWACosmetics.util;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Servlet implementation class RedirectionUtil
- */
-@WebServlet(asyncSupported = true, urlPatterns = { "/RedirectionUtil" })
-public class RedirectionUtil extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RedirectionUtil() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+/**
+ * LMU ID: 23048679
+ * NAME: Aaditi Ghimire
+ */
+public class RedirectionUtil {
+
+	private static final String baseUrl = "/WEB-INF/pages/";
+	public static final String registerUrl = baseUrl + "register.jsp";
+	public static final String loginUrl = baseUrl + "login.jsp";
+	public static final String homeUrl = baseUrl + "home.jsp";
+	public static final String admindashboardUrl = baseUrl + "AdminDashboard.jsp";
+
+	public void setMsgAttribute(HttpServletRequest req, String msgType, String msg) {
+		req.setAttribute(msgType, msg);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	public void redirectToPage(HttpServletRequest req, HttpServletResponse resp, String page)
+			throws ServletException, IOException {
+		req.getRequestDispatcher(page).forward(req, resp);
+	}
+
+	public void setMsgAndRedirect(HttpServletRequest req, HttpServletResponse resp, String msgType, String msg,
+			String page) throws ServletException, IOException {
+		setMsgAttribute(req, msgType, msg);
+		redirectToPage(req, resp, page);
 	}
 
 }
