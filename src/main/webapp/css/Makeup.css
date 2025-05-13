@@ -1,0 +1,162 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #EBEDF3;
+    margin: 0;
+    padding: 0;
+    color: #2c2c2c;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    padding-top: 30px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+    font-size: 26px;
+}
+
+.table-container,
+.crud-form {
+    margin-top: 30px;
+    overflow-x: auto;
+}
+
+.products-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.products-table th,
+.products-table td {
+    border: 1px solid #ddd;
+    padding: 20px 16px;
+    text-align: center;
+    font-size: 18px;
+    
+}
+
+.products-table th {
+    background-color: #785B5F;
+    color: #F4F0E7;
+    font-size: 20px;
+}
+
+.products-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.products-table tr:hover {
+    background-color: #f0eae2;
+}
+
+.crud-form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: 0 auto 60px auto;
+}
+
+.crud-form h2 {
+    color: #333;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.crud-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+    font-size: 20px;
+}
+
+.crud-form input[type="text"],
+.crud-form input[type="number"] {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+.crud-form input:focus {
+    border-color: #785B5F;
+    outline: none;
+}
+
+.crud-form .buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.crud-form button {
+    flex: 1;
+    padding: 18px;
+    background-color: #82585C;
+    color: white;
+    border: none;
+    font-size: 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.crud-form button:hover {
+    background-color: #6d4c50;
+}
+
+/* Action buttons (trash/edit icons) */
+
+.products-table button {
+	display: flex;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #82585C;
+    margin: 0 5px;
+    
+}
+
+.products-table button:hover {
+    color: #4a2e31;
+}
+
+/* Success and error messages */
+.success-message {
+    color: #2e7d32;
+    background-color: #e6f4ea;
+    border: 1px solid #c5e1c5;
+    padding: 12px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 18px;
+    max-width: 700px;
+}
+
+.error-message {
+    color: #c62828;
+    background-color: #fcebea;
+    border: 1px solid #f5c6cb;
+    padding: 12px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 18px;
+    max-width: 700px;
+}

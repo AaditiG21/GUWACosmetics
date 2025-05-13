@@ -1,0 +1,31 @@
+/* Header Styles */
+.header {
+  display: flex;
+   font-family: 'Inria Sans', sans-serif;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ABA0A4;
+  color: #423D41;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.header .logo {
+  font-size: 28px;
+  font-weight: bold;
+  font-family: 'Kalnia', serif;
+}
+
+.nav a {
+  color: #423D41;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 16px;
+  transition: color 0.3s;
+  font-size: 22px;
+}
+
+.nav a:hover {
+  color: #F2F2F2;
+}

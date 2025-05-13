@@ -1,0 +1,200 @@
+/* Modern profile interface for GUWA */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+}
+
+body {
+    background-color: #E4B9D7;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    
+}
+
+.profile-container {
+    max-width: 800px;
+    width: 100%;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    
+    align-items: center;
+    margin: 20px auto;
+    
+}
+
+.profile-content {
+    display: flex;
+    padding: 40px;
+    justify-content: center;
+    
+    
+}
+
+.profile-left {
+    width: 200px;
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.face-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.face-profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #f3e5f0;
+    
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px;
+    overflow: hidden;
+    border: 3px solid #d63384;
+}
+
+.face-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.face-profile-placeholder {
+    color: #d63384;
+    font-size: 60px;
+}
+
+.upload-btn {
+    color: #d63384;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.upload-btn:hover {
+    color: #b82e6f;
+    text-decoration: underline;
+}
+
+.profile-right {
+    flex: 1;
+}
+
+.section-title {
+    color: #d63384;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 25px 0 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f3e5f0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+   align-items: center;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #5d5d5d;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.form-control-wrapper {
+    position: relative;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #333;
+    transition: all 0.3s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #d63384;
+    box-shadow: 0 0 0 3px rgba(214, 51, 132, 0.2);
+}
+
+.form-control[readonly] {
+    background-color: #f0f0f0;
+    color: #777;
+}
+
+textarea.form-control {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.update-btn {
+    background-color: #d63384;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s;
+    margin-top: 10px;
+    float: right;
+}
+
+.update-btn:hover {
+    background-color: #b82e6f;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(184, 46, 111, 0.3);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .profile-content {
+        flex-direction: column;
+        padding: 30px;
+    }
+    
+    .profile-left {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+    
+    .face-profile {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .profile-content {
+        padding: 20px;
+    }
+    
+    .update-btn {
+        width: 100%;
+        padding: 15px;
+    }
+}
