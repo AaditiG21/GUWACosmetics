@@ -7,10 +7,22 @@
     <title>Welcome to GUWA</title>
     <link rel="stylesheet" type="text/css"
         href="${pageContext.request.contextPath}/css/login.css"/>
+        <%
+    String successMessage = (String) session.getAttribute("success");
+    if (successMessage != null) {
+%>
+    <script>
+        alert("<%= successMessage %>");
+    </script>
+<%
+        session.removeAttribute("logout");
+    }
+%>
+        
 </head>
-<body>
-    
-   
+<body> 
+       
+
     <div class="login-container">
         <!-- Left-aligned Form Section -->
         <div class="login-form">

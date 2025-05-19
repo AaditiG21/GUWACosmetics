@@ -6,6 +6,16 @@
     <link rel="stylesheet" type="text/css"
     href="${pageContext.request.contextPath}/css/home.css"/>
     <jsp:include page="header.jsp" />
+        <%
+        String success = request.getParameter("success");
+        if ("true".equals(success)) {
+        %>
+            <script>
+                alert("Log in successful as Customer!");
+            </script>
+        <%
+        }
+        %>
     
 </head>
 <body>
@@ -14,7 +24,7 @@
     <div class="content">
         <h1 class="title">Shop with the best</h1>
         <p class="subtitle">Stay stocked, Stay stunning</p>
-        <button class="shop-button">Shop Now</button>
+       <button class="shop-button" onclick="window.location.href='${pageContext.request.contextPath}/Product'">Shop Now</button>
     </div>
     
     <div class="container">

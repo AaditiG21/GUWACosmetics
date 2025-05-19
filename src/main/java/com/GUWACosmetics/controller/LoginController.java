@@ -60,32 +60,40 @@ public class LoginController extends HttpServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        // Validate input fields
         if (!validationUtil.isNullOrEmpty(username) && !validationUtil.isNullOrEmpty(password)) {
-            // Check for hardcoded admin credentials
-            if (username.equalsIgnoreCase("Aaditi") && password.equals("Aaditi21")) {
-                // Admin login successful
-                SessionUtil.setAttribute(req, "username", username);
-                CookiesUtil.addCookie(resp, "role", "admin", 5 * 30);
-                resp.sendRedirect(req.getContextPath() + "/admindashboard");
-            } else {
-                // Create customer model and authenticate
-                CustomerModel customerModel = new CustomerModel(username, password);
-                Boolean loginStatus = loginService.loginUser(customerModel);
+        	
+        	CustomerModel customerModel = new CustomerModel(username, password);
+        	Boolean loginStatus = loginService.loginUser(customerModel);
 
-                if (loginStatus != null && loginStatus) {
-                    SessionUtil.setAttribute(req, "username", username);
+        	if (Boolean.TRUE.equals(loginStatus)) {
 
-                    // Customer login successful
-                    CookiesUtil.addCookie(resp, "role", "customer", 5 * 30);
-                    resp.sendRedirect(req.getContextPath() + "/Home");
-                } else {
-                    handleLoginFailure(req, resp, loginStatus);
-                }
-            }
-        } else {
-            redirectionUtil.setMsgAndRedirect(req, resp, "error", "Please fill all the fields!", "WEB-INF/pages/login.jsp");
-        }
+        	SessionUtil.setAttribute(req, "username", username);
+
+        	if ("admin".equals(username)) { 
+
+        	CookiesUtil.addCookie(resp, "role", "admin", 5 * 30);
+
+        	resp.sendRedirect(req.getContextPath() + "/AdminDashboard?success=true");
+
+        	} else {
+
+        	CookiesUtil.addCookie(resp, "role", "customer", 5 * 30);
+
+        	resp.sendRedirect(req.getContextPath() + "/Home?success=true");
+        	}
+
+        	} else {
+
+        	handleLoginFailure(req, resp, loginStatus);
+        	}
+
+        	} else {
+
+        	redirectionUtil.setMsgAndRedirect(req, resp, "error", "Please fill all the fields!",
+
+        	RedirectionUtil. loginUrl);
+        	}
+        	
     }
 
     /**

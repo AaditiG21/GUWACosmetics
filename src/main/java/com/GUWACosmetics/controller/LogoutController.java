@@ -23,7 +23,8 @@ import com.GUWACosmetics.util.SessionUtil;
 @WebServlet(asyncSupported = true, urlPatterns = {"/logout"})
 public class LogoutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
+	
 	/**
 	 * Handles POST requests for logging out the user.
 	 * This method deletes the role cookie, invalidates the session, and redirects to the login page.
@@ -41,6 +42,8 @@ public class LogoutController extends HttpServlet {
 		SessionUtil.invalidateSession(request);
 
 		// Redirect to the login page
-		response.sendRedirect(request.getContextPath() + "/login");
+		response.sendRedirect(request.getContextPath() + "/login.jsp?logout=logout");
 	}
+	
+
 }

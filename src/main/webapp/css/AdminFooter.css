@@ -28,3 +28,6 @@
 .footer-right a:hover {
   color: #F2F2F2;
 }
+.logout-icon i {
+    font-size: 20px;
+}

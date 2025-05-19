@@ -14,9 +14,12 @@ import java.io.IOException;
 
 import com.GUWACosmetics.util.CookiesUtil;
 import com.GUWACosmetics.util.SessionUtil;
+
 /**
  * LMU ID: 23048679
  * NAME: Aaditi Ghimire
+ *
+ * This filter handles authentication and authorization based on user roles.
  */
 @WebFilter(asyncSupported = true, urlPatterns = "/*")
 public class AuthenticationFilter implements Filter {
@@ -28,7 +31,7 @@ public class AuthenticationFilter implements Filter {
     private static final String HOME = "/Home";
     private static final String ROOT = "/";
     private static final String ADMIN_DASHBOARD = "/AdminDashboard";
-    private static final String ADMIN_PROFILE = "/AdminProfile";  // Fixed double slash
+    private static final String ADMIN_PROFILE = "/AdminProfile"; 
     private static final String ABOUT_US = "/Aboutus";
     private static final String CONTACT_US = "/Contactus";
     private static final String CUSTOMER_PROFILE = "/CustomerProfile";
@@ -42,16 +45,12 @@ public class AuthenticationFilter implements Filter {
 
     /**
      * Filters requests based on user authentication and role.
-     * <p>
-     * This method checks if a user is logged in, verifies their role, and ensures they have access to the requested resource.
-     * If the user is not authorized or logged in, they are redirected accordingly.
-     * </p>
      * 
-     * @param request the ServletRequest object that contains the request made by the client.
-     * @param response the ServletResponse object that will be sent to the client.
-     * @param chain the FilterChain used to pass the request and response along to the next filter or servlet.
-     * @throws IOException if an I/O error occurs during the filtering process.
-     * @throws ServletException if the filtering process cannot be completed.
+     * @param request  the {@link ServletRequest} object containing the client's request
+     * @param response the {@link ServletResponse} object containing the servlet's response
+     * @param chain    the {@link FilterChain} to pass the request and response to the next entity
+     * @throws IOException      if an input or output error occurs during the filtering
+     * @throws ServletException if the filtering could not be performed
      */
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -67,7 +66,7 @@ public class AuthenticationFilter implements Filter {
             chain.doFilter(request, response);
             return;
         }
-        
+
         if (uri.endsWith(LOGIN) || uri.endsWith(REGISTER) || uri.endsWith(LOGOUT)) {
             chain.doFilter(request, response);
             return;
@@ -82,7 +81,6 @@ public class AuthenticationFilter implements Filter {
 
         if (isLoggedIn) {
             if ("admin".equals(userRole)) {
-                // Admin is logged in
                 if (uri.endsWith(LOGIN) || uri.endsWith(REGISTER)) {
                     res.sendRedirect(req.getContextPath() + ADMIN_DASHBOARD);
                 } else if (uri.endsWith(ADMIN_DASHBOARD) || uri.endsWith(PRODUCT) ||
@@ -113,7 +111,7 @@ public class AuthenticationFilter implements Filter {
             }
         } else {
             // Not logged in
-            if (uri.endsWith(LOGIN) || uri.endsWith(REGISTER)  || uri.endsWith(ROOT)) {
+            if (uri.endsWith(LOGIN) || uri.endsWith(REGISTER) || uri.endsWith(ROOT)) {
                 chain.doFilter(request, response);
             } else {
                 res.sendRedirect(contextPath + LOGIN);
@@ -121,8 +119,5 @@ public class AuthenticationFilter implements Filter {
         }
     }
 
-    /*@Override
-    public void destroy() {
-        // Cleanup logic, if required
-    }*/
+    // Optional destroy method can be added here if cleanup is needed
 }

@@ -5,11 +5,16 @@
 <head>
     <meta charset="UTF-8">
     <title>GUWA Cosmetics</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Footer CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
 </head>
 <body>
 
-    <!-- Your main page content here -->
+   
 
     <!-- Clean Footer Section -->
     <footer class="footer">
@@ -19,10 +24,24 @@
             </div>
             <div class="footer-right">
                 <a href="Contactus">Contact Us</a>
-                <a href="login">Log out</a>
-            </div>
+                <div class="footer-right">
+            <!-- Simple Logout Form -->
+            <form id="logoutForm" action="${pageContext.request.contextPath}/logout" method="post" style="display:inline;">
+                <button type="submit" onclick="return confirmLogout()" class="logout-icon" title="Log out" style="background:none; border:none; cursor:pointer;">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </form>
         </div>
+    </div>
+     </div>
+       
     </footer>
+    <script>
+        function confirmLogout() {
+            return confirm("Are you sure you want to logout?");
+        }
+    </script>
+    
 
 </body>
 </html>

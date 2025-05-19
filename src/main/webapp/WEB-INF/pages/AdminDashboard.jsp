@@ -6,20 +6,29 @@
   <title>Admin Dashboard</title>
   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/AdminDashboard.css"/>
   <jsp:include page="AdminHeader.jsp" />
+   <%
+        String success = request.getParameter("success");
+        if ("true".equals(success)) {
+        %>
+            <script>
+                alert("Log in successful as Admin!");
+            </script>
+        <%
+        }
+        %>
 </head>
 <body>
 
-
-  
-  <main>
-    <input type="text" placeholder="Search">
-
+ <main>
     <div class="stats">
-      <div>Total Products<br><b>200</b></div>
-      <div>Low Stock Items<br><b>30</b></div>
-      <div>Out of stock<br><b>6</b></div>
-      <div>Total Inventory Value<br><b>3,00,500</b></div>
-      <div>New this month<br><b>7</b></div>
+      <div class="stats">
+  <div>Total Products<br><b>${totalProducts}</b></div>
+  <div>Low Stock Items<br><b>${lowStock}</b></div>
+  <div>Out of stock<br><b>${outOfStock}</b></div>
+  <div>Highest Price Product<br><b>${highestPrice}</b></div>
+  <div>Lowest Price Product<br><b>${lowestPrice}</b></div>
+</div>
+
     </div>
 
     <div class="dashboard-tables">
@@ -33,7 +42,8 @@
           <tr><td>Eye Kajal</td><td>NOTE</td><td>Black</td><td>1100</td></tr>
         </table>
         <div class="actions">
-          <button>Add</button>
+          
+          <button type="button" onclick="window.location.href='${pageContext.request.contextPath}/Makeup'">Add</button>
         </div>
       </div>
       <div class="orders">
@@ -48,10 +58,10 @@
        
       </div>
       
-  
     </div>
     
   </main>
+
   <jsp:include page="AdminFooter.jsp"/>
 </body>
 </html>

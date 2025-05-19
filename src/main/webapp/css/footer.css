@@ -2,11 +2,11 @@
     background-color: #f8f1f5;
     padding: 15px 20px;
     border-top: 1px solid #ccc;
-    font-family: 'Inria Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     position: relative;
     bottom: 0;
     width: 100%;
-    font-size: 26px;
+    font-size: 24px;
 }
 
 .footer-container {
@@ -20,17 +20,30 @@
 
 .footer-left {
     color: #333;
-    font-size: 14px;
+    font-size: 16px;
+    
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* gap between "Contact Us" and Logout icon */
 }
 
 .footer-right a {
-    margin-left: 20px;
     text-decoration: none;
-    color: #333;;
+    color: #333;
     font-weight: bold;
     transition: color 0.3s ease;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
 }
 
 .footer-right a:hover {
     color: #b0246c;
+}
+
+.logout-icon i {
+    font-size: 24px;
 }

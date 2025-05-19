@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: 'Inria Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .header {
@@ -24,7 +24,7 @@ body {
 
 .logo {
     font-family: 'Kalnia', serif;
-    font-size: 28px;
+    font-size: 30px;
     color: #493A42;
     text-decoration: none;
 }
@@ -34,14 +34,16 @@ body {
     align-items: center;
     gap: 40px;
     flex-wrap: wrap;
-    font-size:26px;
+    font-size: 22px;
 }
 
 .main-nav a {
     text-decoration: none;
     color: #333;
-    font-weight: bold;
+    font-weight: 600;
     transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 
 .main-nav a:hover,
@@ -50,8 +52,17 @@ body {
 }
 
 .search-box {
-    padding: 5px 10px;
-    border-radius: 4px;
+    padding: 6px 12px;
+    border-radius: 6px;
     border: 1px solid #ccc;
-    margin-left: 25px;
+    margin-left: 20px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Icon spacing */
+.main-nav a i {
+    margin-right: 8px;
+    font-size: 30px;
+    color: #493A42;
 }

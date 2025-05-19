@@ -82,13 +82,6 @@ input:focus {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.success-alert {
-  background-color: #4CAF50; /* green */
-}
-
-.error-alert {
-  background-color: #f44336; /* red */
-}
 
 .buttons {
     display: flex;
@@ -114,6 +107,21 @@ button:hover {
     background-color: #b82e6f;
     transform: translateY(-2px);
 }
+
+.button a {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    background-color: #d63384;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    flex: 1;
+    font-size: 1rem;
+}
+
+
 
 .background-image {
     width: 50%;
@@ -202,5 +210,70 @@ button:hover {
     
     button {
         width: 100%;
+    }
+}
+/* Error and Success messages styles */
+.error-message, .success-message {
+    max-width: 400px;
+    margin: 20px auto 30px auto;
+    padding: 16px 24px 16px 50px;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px;
+    position: relative;
+    animation: slideDownFade 0.6s ease forwards;
+    cursor: default;
+    letter-spacing: 0.03em;
+    user-select: none;
+}
+
+/* Error message styling */
+.error-message {
+    background: #493A42;
+    color: #fff;
+    
+}
+
+/* Success message styling */
+.success-message {
+    background: linear-gradient(135deg, #4caf50, #388e3c);
+    color: #e8f5e9;
+    border: 2px solid #2e7d32;
+}
+
+/* Icons before the messages */
+.error-message::before,
+.success-message::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 26px;
+    height: 26px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* Smooth fade & slide animation */
+@keyframes slideDownFade {
+    0% {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 480px) {
+    .error-message, .success-message {
+        max-width: 90%;
+        font-size: 0.9rem;
+        padding-left: 45px;
     }
 }

@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <title>GUWA Cosmetics</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/AdminFooter.css">
+    <script src="https://kit.fontawesome.com/6882fa3990.js" crossorigin ="anonymous"></script>
 </head>
 <body>
 
@@ -18,10 +19,20 @@
                 © 2024 GUWA Cosmetics. All rights reserved
             </div>
             <div class="footer-right">
-                <a href="login">Log out</a>
-            </div>
+            <!-- Simple Logout Form -->
+            <form id="logoutForm" action="${pageContext.request.contextPath}/logout" method="post" style="display:inline;">
+                <button type="submit" onclick="return confirmLogout()" class="logout-icon" title="Log out" style="background:none; border:none; cursor:pointer;">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </form>
         </div>
+    </div>
     </footer>
+     <script>
+        function confirmLogout() {
+            return confirm("Are you sure you want to logout?");
+        }
+    </script>
 
 </body>
 </html>

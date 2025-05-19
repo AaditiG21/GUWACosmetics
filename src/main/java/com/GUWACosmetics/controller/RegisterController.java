@@ -65,12 +65,10 @@ public class RegisterController extends HttpServlet {
             Boolean isAdded = registerService.registerCustomer(customerModel);
 
             if (isAdded == null) {
-                handleError(req, resp, "Our server is under maintenance. Please try again later!");
+                handleError(req, resp, "Username or email already exists. Please try different credentials.");
             } else if (isAdded) {
                 handleSuccess(req, resp, "Your account was successfully created!", "/login");
-            } else {
-                handleError(req, resp, "Username or email already exists. Please try different credentials.");
-            }
+            } 
         } catch (Exception e) {
             handleError(req, resp, "An unexpected error occurred. Please try again later!");
             e.printStackTrace();
@@ -121,7 +119,7 @@ public class RegisterController extends HttpServlet {
         if (!ValidationUtil.isValidPhoneNumber(phoneNumber))
             return "Phone number must be 10 digits starting with 98.";
         if (!ValidationUtil.isValidEmail(email))
-            return "Please enter a valid email address.";
+            return "Email should have @gmail.com.";
         if (!ValidationUtil.isValidPassword(password))
             return "Password must be at least 8 characters with 1 uppercase, 1 number, and 1 special character.";
         if (!ValidationUtil.doPasswordsMatch(password, confirmPassword))

@@ -1,4 +1,3 @@
-
 package com.GUWACosmetics.util;
 
 import jakarta.servlet.http.Cookie;

@@ -30,15 +30,17 @@ public class CustomerModel {
      * @param email the email address of the customer.
      * @param password the password of the customer.
      */
-    public CustomerModel(String firstName, String lastName, String userName, String phonenumber, String email, String password) {
+    public CustomerModel( String userName, String firstName, String lastName, String phonenumber, String email, String password) {
         super();
+        this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userName = userName;
         this.phonenumber = phonenumber;
         this.email = email;
         this.password = password;
     }
+    
+   
 
     /**
      * Gets the first name of the customer.

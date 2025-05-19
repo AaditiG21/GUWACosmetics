@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/register.css"/>
     <title>Register</title>
+    
 </head>
 <body>
     <div class="register-container">
@@ -49,7 +50,8 @@
 
             <div class="buttons">
                 <button type="submit">Register</button>
-                <button type="button">Cancel</button>
+                <button type="button" onclick="window.location.href='${pageContext.request.contextPath}/login'">Cancel</button>
+
             </div>
         </form>
 

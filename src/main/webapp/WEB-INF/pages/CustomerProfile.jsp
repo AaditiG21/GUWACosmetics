@@ -18,7 +18,6 @@
                 <div class="face-container">
                     <div class="face-profile">
                         <i class="fas fa-user avatar-placeholder"></i>
-                        <!-- <img src="profile-pic.jpg" alt="Profile Picture"> -->
                     </div>
                     <a href="#" class="upload-btn">Upload Picture</a>
                 </div>
@@ -27,18 +26,43 @@
             <!-- Right Column - Form -->
             <div class="profile-right">
                 <form class="profile-form">
+                
                     <div class="form-group">
                      <h2 class="section-title"> CUSTOMER PROFILE</h2>
+                     
+                     <div class="form-group">
                         <label class="form-label">Username:</label>
                         <div class="form-control-wrapper">
-                            <input type="text" class="form-control" value="" >
+                            <input type="text" class="form-control" id="username" name="username" value="${customer.userName}" required>
+                        </div>
+                    </div>
+                        <label class="form-label">First Name:</label>
+                        <div class="form-control-wrapper">
+                       		<input type="text" class="form-control" id="firstname" name="firstname" value="${customer.firstName}" required>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="form-group">
+                        <label class="form-label">Last Name:</label>
+                        <div class="form-control-wrapper">
+                            <input type="text" class="form-control" id="lastname" name="lastname" value="${customer.lastName}" required>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="form-group">
+                        <label class="form-label">Phone Number:</label>
+                        <div class="form-control-wrapper">
+                           <input type="text" class="form-control" id="phonenumber" name="phonenumber" value="${customer.phonenumber}" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">E-mail:</label>
                         <div class="form-control-wrapper">
-                            <input type="email" class="form-control" value="">
+                           <input type="text"  class="form-control" id="email" name="email" value="${customer.email}" required>
                         </div>
                     </div>
 
@@ -46,23 +70,27 @@
                     <div class="form-group">
                         <label class="form-label">Password:</label>
                         <div class="form-control-wrapper">
-                            <input type="text" class="form-control" placeholder="">
+                           <input type="text"  class="form-control" id="password" name="password" value="${customer.password}" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Repeat Password:</label>
+                        <label class="form-label">New Password:</label>
                         <div class="form-control-wrapper">
-                            <input type="text" class="form-control" placeholder="">
+                           <input type="text"  class="form-control" id="newpassword" name="newpassword"  required>
                         </div>
                     </div>
-
+                    
                     <div class="form-group">
-                        <label class="form-label">About Me:</label>
+                        <label class="form-label">Confirm Password:</label>
                         <div class="form-control-wrapper">
-                            <textarea class="form-control"></textarea>
+                           <input type="text"  class="form-control" id=confirmpassword name="confirmpassword"   required>
                         </div>
                     </div>
+                    
+                    
+
+                   
 
                     <button type="submit" class="update-btn">Update Profile</button>
                 </form>

@@ -10,6 +10,10 @@ import java.io.IOException;
  * LMU ID: 23048679
  * NAME: Aaditi Ghimire
  */
+import java.util.List;
+
+import com.GUWACosmetics.model.ProductModel;
+import com.GUWACosmetics.service.MakeupService;
 
 /**
  * Servlet implementation class ProductController
@@ -19,32 +23,36 @@ import java.io.IOException;
  * </p>
  */
 @WebServlet(asyncSupported = true, urlPatterns = { "/Product" })
-public class ProductController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-    
-    /**
-     * Default constructor. 
-     */
-    public ProductController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-    /**
-     * Handles the HTTP <code>GET</code> request.
-     * <p>
-     * Forwards the request to the Product.jsp page to display product-related content.
-     * </p>
-     * 
-     * @param request the HttpServletRequest object that contains the request the client made of the servlet.
-     * @param response the HttpServletResponse object that contains the response the servlet sends to the client.
-     * @throws ServletException if the request for the GET could not be handled.
-     * @throws IOException if an input or output error is detected when the servlet handles the request.
-     */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Forwards the request to Product.jsp to display product details
-        request.getRequestDispatcher("WEB-INF/pages/Product.jsp").forward(request, response);
-    }
+    
+    public class ProductController extends HttpServlet {
+        private static final long serialVersionUID = 1L;
+        private MakeupService service;
+        /**
+         * Default constructor for ProductsController.
+         */
+        public ProductController() {
+            super();
+            this.service = new MakeupService();
+        }
+
+        /**
+         * Handles GET requests to "/products".
+         * Forwards the request to the products JSP page for rendering.
+         *
+         * @param request  the HttpServletRequest object that contains the request the client made to the servlet
+         * @param response the HttpServletResponse object that contains the response the servlet returns to the client
+         * @throws ServletException if an input or output error is detected when the servlet handles the GET request
+         * @throws IOException      if the request for the GET cannot be handled
+         * @see HttpServlet#doGet(HttpServletRequest, HttpServletResponse)
+         */
+        @Override
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        	List<ProductModel> products;
+    		products = service.getAllMakeupProducts();
+    		request.setAttribute("products", products);
+            request.getRequestDispatcher("WEB-INF/pages/Product.jsp").forward(request, response);
+        }
 
     /**
      * Handles the HTTP <code>POST</code> request.
